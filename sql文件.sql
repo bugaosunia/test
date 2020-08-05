@@ -1,23 +1,23 @@
-#1¡¢ÊµÏÖMysql Êý¿â±íÉè¼Æ£¬Ö§³ÖÖÐÎÄ´æ´¢¡£
+#1ã€å®žçŽ°Mysql æ•°åº“è¡¨è®¾è®¡ï¼Œæ”¯æŒä¸­æ–‡å­˜å‚¨ã€‚
 CREATE TABLE `departinfo` (
-  `name` varchar(100) DEFAULT NULL COMMENT 'ÐÕÃû',
-  `sex` varchar(2) DEFAULT NULL COMMENT 'ÐÔ±ð\r\n',
-  `iphone` varchar(11) DEFAULT NULL COMMENT 'ÊÖ»úºÅ',
-  `workname` varchar(255) DEFAULT NULL COMMENT '¸ÚÎ»Ãû³Æ',
-  `age` int(11) DEFAULT NULL COMMENT 'ÄêÁä'
+  `name` varchar(100) DEFAULT NULL COMMENT 'å§“å',
+  `sex` varchar(2) DEFAULT NULL COMMENT 'æ€§åˆ«\r\n',
+  `iphone` varchar(11) DEFAULT NULL COMMENT 'æ‰‹æœºå·',
+  `workname` varchar(255) DEFAULT NULL COMMENT 'å²—ä½åç§°',
+  `age` int(11) DEFAULT NULL COMMENT 'å¹´é¾„'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-#2¡¢Ö§³ÖÊÖ»úºÅÊý¾ÝÍÑÃô¡£
+#2ã€æ”¯æŒæ‰‹æœºå·æ•°æ®è„±æ•ã€‚
 select CONCAT(
-     LEFT(iphone, 3),  #ÊÖ»úºÅÇ°3Î»
+     LEFT(iphone, 3),  #æ‰‹æœºå·å‰3ä½
      '********',
-     RIGHT(iphone, 3)  #ÊÖ»úºÅºó3Î»
-     ) AS 'Éí·ÝÖ¤ºÅ'
+     RIGHT(iphone, 3)  #æ‰‹æœºå·åŽ3ä½
+     ) AS 'æ‰‹æœºå·'
 	from departinfo 
-#3¡¢SQL Í³¼Æ¸÷²¿ÃÅµÄÔ±¹¤ÈËÊý¡£
+#3ã€SQL ç»Ÿè®¡å„éƒ¨é—¨çš„å‘˜å·¥äººæ•°ã€‚
 select count(*) from departinfo group by workname
-#4¡¢SQL ²éÑ¯Ã¿¸ö²¿ÃÅÄêÁä×î´óµÄÔ±¹¤¡£
+#4ã€SQL æŸ¥è¯¢æ¯ä¸ªéƒ¨é—¨å¹´é¾„æœ€å¤§çš„å‘˜å·¥ã€‚
 select max(age) from departinfo group by worknamew
-#5¡¢SQL ÊÖ»úºÅÄ£ºý²éÑ¯¡£
+#5ã€SQL æ‰‹æœºå·æ¨¡ç³ŠæŸ¥è¯¢ã€‚
 select * from departinfo where iphone like'%'#{iphone}'%'
 
 
